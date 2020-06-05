@@ -1,0 +1,109 @@
+<!doctype html>
+<html>
+<head>
+	<title>3D Scene</title>
+  <link rel="stylesheet" href="styles/style.css" />
+</head>
+<body>
+  <audio id="audio">
+    <source src="/media/audio/music.wav" type="audio/wav" />
+  </audio>
+
+  <div class="scene">
+
+    <div class="ground">
+      <img class="face top" src="media/images/ground-top.png" />
+      <img class="face front" src="media/images/ground-side.png" />
+      <img class="face back" src="media/images/ground-side.png" />
+      <img class="face left" src="media/images/ground-side.png" />
+      <img class="face right" src="media/images/ground-side.png" />
+    </div>
+
+    <div class="object house">
+      <img class="face front" src="media/images/hauntedHouse.png">
+    </div>
+
+    <div class="object pumpkin01">
+      <img class="face front" src="media/images/pumpkin1.png">
+    </div>
+
+    <div class="object pumpkin02">
+        <img class="face front" src="media/images/pumpkin2.png">
+    </div>
+
+    <div class="object pumpkin03">
+        <img class="face front" src="media/images/pumpkin1.png">
+    </div>
+
+    <div class="object tree1">
+      <img class="face front" src="media/images/tree1.png">
+    </div>
+
+    <div class="object tree2">
+        <img class="face front" src="media/images/tree2.png">
+    </div>
+
+    <div class="object tree3">
+        <img class="face front" src="media/images/tree3.png">
+    </div>
+
+    <div class="object moon">
+      <img class="face front" src="media/images/moon.png">
+    </div>
+
+    <div class="object bat01">
+      <img class="face front" src="media/images/bat01.png">
+    </div>
+
+    <div class="object bat02">
+      <img class="face front" src="media/images/bat02.png">
+    </div>
+
+    <div class="object bat03">
+      <img class="face front" src="media/images/bat03.png">
+    </div>
+    
+    <div class="object tombstone01">
+        <img class="face front" src="media/images/tombstone01.png">
+    </div>
+
+    <div class="object tombstone02">
+        <img class="face front" src="media/images/tombstone02.png">
+    </div>
+
+    <div class="object tombstone03">
+        <img class="face front" src="media/images/tombstone03.png">
+    </div>
+
+    <div class="object tombstoneGroup">
+        <img class="face front" id="tombstoneGroup01" src="media/images/tombstoneGroup.png">
+        <img class="face front" id="tombstoneGroup02" src="media/images/tombstoneGroup.png">
+    </div>
+
+    <div class="object fence">
+        <img class="face back" src="media/images/fence.png">
+        <img class="face left" src="media/images/fence.png">
+        <img class="face right" src="media/images/fence.png">
+        <img class="face front" src="media/images/fence.png">
+    </div>
+
+    <div class="object witch">
+        <img class="face front" src="media/images/witch.png">
+    </div>
+
+  </div>
+ 
+  <div class="fog">
+      <div class="fog-container">
+        <div class="fog-img fog-img-first"></div>
+        <div class="fog-img fog-img-second"></div>
+      </div>
+  </div>
+
+  <audio src="/media/audio/music.wav" ></audio>
+      
+  <script src="scripts/jquery-3.4.1.min.js"></script>
+  <script src="scripts/script.js"></script>
+  <script src="scripts/audio.js"></script>
+</body>
+</html>

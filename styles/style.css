@@ -1,0 +1,207 @@
+* {
+  transform-style: preserve-3d;
+  user-select: none;
+}
+
+body {
+  margin: 0;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-image: radial-gradient( #0b091f, #0a0a0c);
+  perspective: 1000px;
+}
+
+.scene, .object, .face {
+  position: absolute;
+  --rx: 0deg; --ry: 0deg; --rz: 0deg;
+  --tx: 0px; --ty: 0px; --tz: 0px;
+  transform: rotateX( var(--rx) ) rotateY( var(--ry) ) rotateZ( var(--rz) ) translate3d( var(--tx) , var(--ty), var(--tz) );
+}
+
+.face {
+  box-shadow: 0 0;
+}
+
+.scene {
+  width: 600px;
+  height: 650px;
+  --rx: -17deg; 
+  --ry: 20deg;
+}
+
+.ground .top { --rx: 90deg; }
+
+.ground .front { --tz: 300px; --ty: 300px; }
+
+.ground .back { --tz: -300px; --ty: 300px; }
+
+.ground .left { --ry: 90deg; --tz: -300px; --ty: 300px; }
+
+.ground .right { --ry: -90deg; --tz: -300px; --ty: 300px; }
+
+.fence {
+  height: 242px;
+  width: 214px;
+  --tx: 45px;
+  --ty: 86px;
+  --tz: -100px;
+}
+
+.fence .front { --ry: -20deg;} 
+
+.house { --tx: 80px; --ty: -90px; --tz: -140px; }
+
+.house .front { animation: light-hover 7s infinite 5s ease-in-out; }
+
+.pumpkin01 { --tx: 130px; --ty: 246px; --tz: 70px; }
+
+.pumpkin01 .front:hover { animation: bounce 1s infinite 0s ease-in-out ; }
+
+.pumpkin02 .front:hover { animation: bounce 1s infinite 0s ease-in-out ; }
+
+.pumpkin03 .front:hover { animation: bounce 1s infinite 0s ease-in-out ; }
+
+.pumpkin02 { --tx: 50px; --ty: 223px; --tz: 40px; }
+
+.pumpkin03 { --tx: 150px; --ty: 246px; --tz: -10px; }
+
+.tree1 { --tx: -10px; --ty: 44px; --tz: -20px; }
+.tree2 { --tx: 210px; --ty: -75px; --tz: -245px; }
+.tree3 { --tx: 420px; --ty: 108px; --tz: 160px; }
+
+.tree1 .front { animation: lean 6s infinite 0s ease-in-out; }
+.tree2 .front { animation: lean 4s infinite 1s ease-in-out; }
+.tree3 .front { animation: lean 3s infinite 2s ease-in-out; }
+
+.moon { --tx: 80px;  --ty: -126px; --tz: -360px; }
+.moon .front { animation: hover 3s infinite 0s ease-in-out; }
+
+.tombstone01 { --tx: 410px; --ty: 198px; --tz: -50px; }
+.tombstone02 { --tx: 450px; --ty: 225px; --tz: -10px; }
+.tombstone03 { --tx: 510px; --ty: 227px; --tz: -20px; }
+.tombstone03 .front { --rz: -5deg; }
+
+.tombstone01 .front:hover { animation: bounce 1s infinite 0s ease-in-out; }
+.tombstone02 .front:hover { animation: bounce 1s infinite 0s ease-in-out; }
+.tombstone03 .front:hover { animation: slide 2s infinite 0s ease-in-out; }
+
+#tombstoneGroup01 { --tx: 30px; --ty: 220px; --tz: -230px; }
+#tombstoneGroup02 { --tx: 270px; --ty: 220px; --tz: -180px; }
+
+.bat01 { --tx: 150px; --ty: 148px; --tz: -120px; }
+.bat02 { --tx: 380px; --ty: 228px; --tz: -50px; }
+.bat03 { --tx: 450px; --ty: 198px; --tz: -50px; }
+
+.bat01 .front { animation: bat 2s infinite 0s ease-in-out; }
+.bat02 .front { animation: bat 3s infinite 2s ease-in-out; }
+.bat03 .front { animation: bat 4s infinite 1s ease-in-out; }
+
+.fence { --ry: 0deg; }
+
+.fence .back { --tx: -44px; --ty: 155px; --tz: -175px; }
+.fence .left { --tx: 103px; --ty: 155px; --tz: 340px; --ry: -90deg; }
+.fence .right { --tx: -103px; --ty: 155px; --tz: 250px; --ry: 90deg; }
+.fence .front { --tx: -44px; --ty: 155px; --tz: 394px; --ry: 0deg; }
+
+.witch { --tx: 210px; --ty: 0px; --tz: -300px; --ry: 0deg; animation: circle 5s infinite 0s ease-in-out; }
+.witch .front {  animation: witch 15s infinite 0s ease-out; }
+
+.fog {
+  pointer-events: none;
+  position: absolute;
+  height: 60%;
+  width: 60%;
+  transform: translate3d( 0, 0, 450px );
+}
+
+.fog-container {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  z-index: 1;
+}
+
+.fog-img {
+  position: absolute;
+  height: 100vh;
+  width: 300vw;
+  z-index: 2;
+}
+
+.fog-img-first {
+  background: url("../media/images/fog-1.png");
+  background-repeat: repeat-x;
+  background-size: contain;
+  background-position: center;
+  animation: marquee 60s linear infinite;
+}
+
+.fog-img-second {
+  background: url("../media/images/fog-2.png");
+  background-repeat: repeat-x;
+  background-size: contain;
+  background-position: center;
+  animation: marquee 100s linear infinite;
+}
+
+@keyframes marquee {
+  0% {
+    transform: translate3d(0, 0, 0);
+  }
+
+  100% {
+    transform: translate3d(-80vw, 0, 0);
+  }
+}
+
+@keyframes bounce {
+  0% { transform: translateY( 0% ) }
+  50% { transform: translateY( -12% ) }
+  100% { transform: translateY( 0% ) }
+}
+
+@keyframes slide {
+  0% { transform: translate3d( 0,0,0 ) }
+  50% { transform: translate3d( 0,0,100px ) }
+  100% { transform: translate3d( 0,0,0 ) }
+}
+
+@keyframes hover {
+  0% { transform: translateY( 0% ) }
+  50% { transform: translateY( -4% ) }
+  100% { transform: translateY( 0% ) }
+}
+
+@keyframes light-hover {
+  0% { transform: translateY( 0% ) }
+  50% { transform: translateY( -1% ) }
+  100% { transform: translateY( 0% ) }
+}
+
+@keyframes witch {
+  0% { transform: rotateY(0deg) }
+  100% { transform: rotateY(360deg) }
+}
+
+@keyframes circle {
+  0% { transform: translate3d( 210px, 0px, -300px ) }
+  50% { transform: translate3d( 0px, -30px, -150px ) }
+  100% { transform: translate3d( 210px, 0px, -300px ) }
+}
+
+@keyframes bat {
+  0% { transform: translateY( 0% ) rotateZ( 0 ) }
+  50% { transform: translateY( -50% ) rotateZ( 20deg )}
+  100% { transform: translateY( 0% ) rotateZ( 0 ) }
+}
+
+@keyframes lean {
+  0% { transform: rotateZ( 0deg ) }
+  25% { transform: rotateZ( -1deg ) }
+  50% { transform: rotateZ( 0deg ) }
+  75% { transform: rotateZ( 1deg ) }
+  100% { transform: rotateZ( 0deg ) }
+}
